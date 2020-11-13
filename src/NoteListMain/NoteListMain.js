@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PropTypes from 'prop-types';
 import Note from '../Note/Note'
 import CircleButton from '../CircleButton/CircleButton'
 import ApiContext from '../ApiContext'
@@ -48,3 +49,7 @@ export default class NoteListMain extends React.Component {
     )
   }
 }
+
+NoteListMain.propTypes = {
+  match: PropTypes.object,
+};
