@@ -75,13 +75,14 @@ class AddNote extends React.Component
             body: JSON.stringify({
                 name: this.state.name.value,
                 modified: new Date().toISOString(),
-                folderId: this.state.folder.value,
+                folderid: parseInt(this.state.folder.value),
                 content: this.state.content.value
             })
         };
         fetch('http://localhost:9090/notes', request).then(
             resp => resp.json()
         ).then(data => {
+            console.log(data);
             this.context.addNote(data);
             this.props.history.push('/folder/' + data.folderId);
         }).catch(error => {

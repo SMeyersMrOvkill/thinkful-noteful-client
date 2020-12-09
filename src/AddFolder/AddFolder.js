@@ -48,6 +48,7 @@ class AddFolder extends React.Component
             })
         }).then(resp => resp.json())
         .then(data => {
+            console.log(data);
             this.context.addFolder(data);
             this.props.history.push('/');
         }).catch(error => {
