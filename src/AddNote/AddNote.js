@@ -3,6 +3,8 @@ import React from 'react';
 import ApiContext from '../ApiContext';
 import ValidationError from '../ValidationError/ValidationError';
 
+import config from '../config';
+
 import './AddNote.css';
 
 class AddNote extends React.Component
@@ -79,7 +81,7 @@ class AddNote extends React.Component
                 content: this.state.content.value
             })
         };
-        fetch('http://localhost:9090/notes', request).then(
+        fetch(`${config.API_ENDPOINT}/notes`, request).then(
             resp => resp.json()
         ).then(data => {
             console.log(data);

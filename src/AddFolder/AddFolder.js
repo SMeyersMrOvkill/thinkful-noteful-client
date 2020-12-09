@@ -3,6 +3,8 @@ import React from 'react';
 import ApiContext from '../ApiContext';
 import ValidationError from '../ValidationError/ValidationError';
 
+import config from '../config';
+
 import './AddFolder.css'
 
 class AddFolder extends React.Component
@@ -38,7 +40,7 @@ class AddFolder extends React.Component
         e.preventDefault();
         const name = this.state.name.value;
         console.log(name);
-        fetch('http://localhost:9090/folders/', {
+        fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
